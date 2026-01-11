@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <header><h1>Thế Giới Động Vật</h1></header>
+    
+    <div class="container">
+        <h2>Danh sách con vật</h2>
+        <div class="animal-list" id="animalList"></div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

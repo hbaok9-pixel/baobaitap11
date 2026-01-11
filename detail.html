@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="container detail-container">
+        <h1 id="animalName"></h1>
+        <p id="animalDesc" style="font-style: italic; color: #0a0a0a;"></p>
+        <div id="animalImages">
+            </div>
+<button onclick="window.location.href='index.html'">go home</button>
+    </div>
+
+    <script>
+
+        window.onload = function() {
+            const rawData = localStorage.getItem('selectedAnimal');
+            if (rawData) {
+                const animal = JSON.parse(rawData);
+                document.getElementById('animalName').innerText =animal.ten;
+                document.getElementById('animalDesc').innerText = animal.mota;
+                
+                const imgContainer = document.getElementById('animalImages');
+                animal.thuvien.forEach(url => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    imgContainer.appendChild(img);
+                });
+            }
+        };
+    </script>
+        <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
+  });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
